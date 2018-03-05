@@ -1,5 +1,6 @@
 <?php
 header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
 
 	if(isset($_POST['reg_number'])) {
 		// reg number present in request
