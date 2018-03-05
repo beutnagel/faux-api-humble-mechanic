@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lookup with the Humble Mechanic API</title>
+</head>
+<body>
+	<form>
+		<label for="reg_number">Type in your licence plate number (try with am31793)</label>
+		<input type="text" name="reg_number" id="reg_number" placeholder="am31793">
+		<button type="submit">Submit</button>
+	</form>
+
+<script type="text/javascript">
+	const API_URL = "https://humble-mechanic-api.herokuapp.com/";
+
+	// set up event listener for submit button click
+	document.querySelector("button").addEventListener("click", function (e) {
+		e.preventDefault(); // stop the browser from submitting the form
+
+		// get the value typed into the input
+		const REG_NUMBER = document.querySelector("#reg_number").value;
+		console.log(REG_NUMBER);
+
+		// create an form data object (to mimic how browsers send data)
+		let data = new FormData();
+		// attach our POST data
+		data.append("reg_number", REG_NUMBER);
+
+		// prepare an AJAX call
+		var xhr = new XMLHttpRequest();
+
+		// listen for received response
+		xhr.addEventListener("readystatechange", function () {
+		  if (this.readyState === 4) {
+		    console.log(this.responseText);
+		  }
+		});
+
+		// send the data
+		xhr.open("POST", API_URL);
+		xhr.send(data);
+	})
+	
+
+/*
+	var data = new FormData();
+data.append("reg_number", "am31793");
+
+
+
+xhr.addEventListener("readystatechange", function () {
+  if (this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("POST", API_URL);
+
+xhr.send(data);
+*/
+</script>
+
+
+
+</body>
+</html>
