@@ -32,7 +32,8 @@
 		// listen for received response
 		xhr.addEventListener("readystatechange", function () {
 		  if (this.readyState === 4) {
-		    console.log(this.responseText);
+		  	let result = JSON.parse(this.responseText);
+		    console.log(result);
 		  }
 		});
 
