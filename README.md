@@ -1,5 +1,6 @@
 # faux-api-humble-mechanic
 An API for the Humble Mechanic workshop - baaa.dk
+https://github.com/beutnagel/humble-mechanic
 
 ## Usage
 Expects to receive a __reg_number__ key with the POST method
